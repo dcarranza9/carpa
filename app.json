@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dokku": {
+      "predeploy": "./manage.py compilemessages && ./manage.py collectstatic --noinput",
+      "postdeploy": "echo \"Environment: $ENVIRONMENT\" && ./manage.py migrate && ./manage.py loaddata initial"
+    }
+  }
+}

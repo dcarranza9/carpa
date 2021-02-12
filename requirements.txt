@@ -1,0 +1,16 @@
+Django==3.1.1
+
+# a configurable set of panels that display various debug information about the current request/response
+django-debug-toolbar==3.2
+
+# Python WSGI HTTP Server
+gunicorn==19.9.0
+
+# PostgreSQL python client
+psycopg2==2.8.3
+
+# PDF: open source implementation of RML
+trml2pdf == 0.6
+
+# For autoconfig database using DATABASE_URL env variable
+dj_database_url
