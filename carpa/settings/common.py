@@ -36,6 +36,8 @@ DEPENDENCIES_APPS = [
 
 PROJECT_APPS = [
     'main',
+    'harvests',
+    'reports',
 ]
 
 ADDONS = [
