@@ -41,7 +41,6 @@ PROJECT_APPS = [
 ]
 
 ADDONS = [
-    'debug_toolbar',
     # Pick the Addons you want
     # To use Webpack, uncomment next line
     # 'webpack_loader',
