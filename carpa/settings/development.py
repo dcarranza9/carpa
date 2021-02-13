@@ -18,13 +18,14 @@ def show_toolbar(request):
     return True
 
 # CORS Config: install django-cors-headers and uncomment the following to allow CORS from any origin
-"""
+
 DEV_APPS = [
-    'corsheaders'
+    'debug_toolbar',
+    # 'corsheaders'
 ]
 
 INSTALLED_APPS += DEV_APPS
-"""
+
 
 
 DEV_MIDDLEWARE = [
