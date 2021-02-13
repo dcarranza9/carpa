@@ -1,7 +1,7 @@
 from django.db import models
+from main.models import BaseModel
 
-
-class CategoryBunch(models.Model):
+class CategoryBunch(BaseModel, models.Model):
     BUNCH_TYPE = (
         ('GREEN', 'GREEN'),
         ('MATURE', 'MATURE'),
@@ -21,9 +21,9 @@ class CategoryBunch(models.Model):
         return self.name
 
 
-class Bunch(models.Model):
+class Bunch(BaseModel, models.Model):
     category = models.OneToOneField(to=CategoryBunch, on_delete=models.CASCADE)
-    weight = models.DecimalField(max_digits=5, decimal_places=2)
+    weight = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Bunch'
