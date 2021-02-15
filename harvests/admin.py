@@ -14,6 +14,8 @@ class BunchAdmin(admin.ModelAdmin):
             'fields': BaseModelAdmin.readonly_fields
         })
     )
+    list_display = ('id', 'category', 'creation_date', 'update_date' )
+    list_filter = ('category',)
 
 
 @admin.register(CategoryBunch)
@@ -21,9 +23,10 @@ class CategoryBunchAdmin(admin.ModelAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
         (None, {
-            'fields': ('name', ),
+            'fields': ('name', 'description'),
         }),
         ('Audit', {
             'fields': BaseModelAdmin.readonly_fields
         })
     )
+    list_display = ('id', 'name', 'creation_date', 'update_date')
