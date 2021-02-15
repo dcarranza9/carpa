@@ -31,4 +31,4 @@ class Bunch(BaseModel, models.Model):
         verbose_name_plural = 'Bunches'
 
     def __str__(self):
-        return self.pk
+        return f'Bunch-{self.pk}'
