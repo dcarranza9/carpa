@@ -17,7 +17,12 @@ class CategoryBunch(BaseModel, models.Model):
     def __str__(self):
         return self.name
 
+
 class BatchSource(BaseModel, models.Model):
+    """
+
+    """
+
     location = models.CharField(max_length=128, null=True, blank=True)
     city = models.CharField(max_length=64, null=True, blank=True)
 
@@ -27,6 +32,7 @@ class BatchSource(BaseModel, models.Model):
 
     def __str__(self):
         return self.location
+
 
 class Bunch(BaseModel, models.Model):
     """

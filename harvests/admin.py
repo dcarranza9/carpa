@@ -14,7 +14,7 @@ class BunchAdmin(admin.ModelAdmin):
             'fields': BaseModelAdmin.readonly_fields
         })
     )
-    list_display = ('id', 'category', 'creation_date', 'update_date' )
+    list_display = ('id', 'category', 'creation_date', 'update_date')
     list_filter = ('category',)
 
 
@@ -43,5 +43,5 @@ class BatchSourceAdmin(admin.ModelAdmin):
             'fields': BaseModelAdmin.readonly_fields
         })
     )
-    list_display = ('id', 'city', 'creation_date', 'update_date' )
+    list_display = ('id', 'city', 'creation_date', 'update_date')
     list_filter = ('city', 'creation_date')
