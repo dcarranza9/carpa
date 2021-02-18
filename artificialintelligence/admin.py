@@ -8,11 +8,11 @@ class ProcessedImageAdmin(admin.ModelAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
         (None, {
-            'fields': ('name', 'image', 'bunches'),
+            'fields': ('label', 'image', 'bunches'),
         }),
         ('Audit', {
             'fields': BaseModelAdmin.readonly_fields
         })
     )
-    list_display = ('id', 'name', 'creation_date', 'update_date')
+    list_display = ('id', 'label', 'creation_date', 'update_date')
     list_filter = ('creation_date',)
