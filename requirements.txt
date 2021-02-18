@@ -9,6 +9,9 @@ gunicorn==19.9.0
 # PostgreSQL python client
 psycopg2==2.8.3
 
+# Python Imaging Library
+Pillow
+
 # PDF: open source implementation of RML
 trml2pdf == 0.6
 
