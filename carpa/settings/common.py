@@ -36,6 +36,7 @@ DEPENDENCIES_APPS = [
 
 PROJECT_APPS = [
     'main',
+    'artificialintelligence',
     'harvests',
     'reports',
 ]
