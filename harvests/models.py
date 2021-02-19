@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models as gis_models
 from django.db import models
+# from django.db.models.signals import post_save
 from main.models import BaseModel
 
 
@@ -36,7 +37,13 @@ class BatchSource(BaseModel, models.Model):
         verbose_name_plural = 'BatchSources'
 
     def __str__(self):
-        return self.location
+        return self.city
+
+
+# def show_location(sender, instance, **kwargs):
+#     print(f'My coordinates: {instance.location}')
+#
+# post_save.connect(show_location, sender=BatchSource)
 
 
 class Bunch(BaseModel, models.Model):
