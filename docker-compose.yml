@@ -18,7 +18,7 @@ services:
       - "8000:8000"
 
   db:
-    image: postgres:11
+    image: postgis/postgis:12-3.0
     container_name: carpa-postgres
     environment: 
       POSTGRES_PASSWORD: postgres
