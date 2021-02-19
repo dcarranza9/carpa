@@ -1,9 +1,10 @@
-from django.contrib import admin
+from django.contrib.gis import admin
+from django.contrib.admin import register
 from harvests.models import Bunch, CategoryBunch, BatchSource
 from main.admin import BaseModelAdmin
 
 
-@admin.register(Bunch)
+@register(Bunch)
 class BunchAdmin(admin.ModelAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
@@ -18,7 +19,7 @@ class BunchAdmin(admin.ModelAdmin):
     list_filter = ('category',)
 
 
-@admin.register(CategoryBunch)
+@register(CategoryBunch)
 class CategoryBunchAdmin(admin.ModelAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
@@ -32,8 +33,8 @@ class CategoryBunchAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'creation_date', 'update_date')
 
 
-@admin.register(BatchSource)
-class BatchSourceAdmin(admin.ModelAdmin):
+@register(BatchSource)
+class BatchSourceAdmin(admin.OSMGeoAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
         (None, {
@@ -45,3 +46,6 @@ class BatchSourceAdmin(admin.ModelAdmin):
     )
     list_display = ('id', 'city', 'creation_date', 'update_date')
     list_filter = ('city', 'creation_date')
+    default_lat = 454018.69011
+    default_lon = -8191521.69263
+    default_zoom = 17

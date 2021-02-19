@@ -1,3 +1,4 @@
+from django.contrib.gis.db import models as gis_models
 from django.db import models
 from main.models import BaseModel
 
@@ -23,7 +24,11 @@ class BatchSource(BaseModel, models.Model):
 
     """
 
-    location = models.CharField(max_length=128, null=True, blank=True)
+    location = gis_models.PolygonField(
+        help_text='Select at least 3 points to delimit a region. When finished, press click twice.',
+        null=True,
+        blank=True
+    )
     city = models.CharField(max_length=64, null=True, blank=True)
 
     class Meta:
