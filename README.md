@@ -60,7 +60,7 @@ docker-compose up
 
 ### When there are changes in the database container ###
 
-It may be useful to use:
+It may be useful to run:
 
 ```
 docker-compose down --volumes
