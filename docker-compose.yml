@@ -19,6 +19,6 @@ services:
 
   db:
     image: postgis/postgis:12-3.0
-    container_name: carpa-postgres
+    container_name: carpa-postgis
     environment: 
       POSTGRES_PASSWORD: postgres
