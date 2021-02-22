@@ -1,49 +1,5 @@
 [
 {
-    "model": "harvests.categorybunch",
-    "pk": 1,
-    "fields": {
-        "creation_date": "2021-02-15T18:46:58.777Z",
-        "update_date": "2021-02-15T18:46:58.777Z",
-        "is_active": true,
-        "name": "maturity:green",
-        "description": "Test description"
-    }
-},
-{
-    "model": "harvests.categorybunch",
-    "pk": 2,
-    "fields": {
-        "creation_date": "2021-02-15T18:47:10.349Z",
-        "update_date": "2021-02-15T18:47:10.349Z",
-        "is_active": true,
-        "name": "maturity:mature",
-        "description": "Test description"
-    }
-},
-{
-    "model": "harvests.categorybunch",
-    "pk": 3,
-    "fields": {
-        "creation_date": "2021-02-17T12:32:07.854Z",
-        "update_date": "2021-02-17T12:32:07.854Z",
-        "is_active": true,
-        "name": "maturity:cob",
-        "description": "Fruit detachment: 100%"
-    }
-},
-{
-    "model": "harvests.bunch",
-    "pk": 1,
-    "fields": {
-        "creation_date": "2021-02-15T18:47:32.185Z",
-        "update_date": "2021-02-15T18:47:32.185Z",
-        "is_active": true,
-        "category": 1,
-        "weight": "45.27"
-    }
-},
-{
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
