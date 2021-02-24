@@ -15,7 +15,7 @@ class ParcelOwnerAdmin(admin.ModelAdmin):
             'fields': (('first_name', 'last_name',),)
         }),
         ('Address', {
-            'fields': ('organization', 'address_1', 'address_1',)
+            'fields': ('organization', 'address_1', 'address_2',)
         }),
         ('Contact', {
             'fields': ('email', 'phone', 'website',)
