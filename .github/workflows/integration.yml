@@ -39,4 +39,6 @@ jobs:
           pip install Django==${{ matrix.django-version }}
 
       - name: Run Tests
-        run: python -c "import sys; print(sys.version)"
+        run: |
+          python -c "import sys; print(sys.version)"
+          echo Soon...
