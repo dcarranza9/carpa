@@ -31,13 +31,11 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - name: Cloning repo
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Push to dokku
-        uses: dokku/github-action@master
-        with:
-          git_remote_url: 'ssh://dokku@157.230.57.158:22/carpa'
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: actions/checkout@v1
+      - name: Dokku deploy
+        uses: vitalyliber/dokku-github-action@v6.0
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          HOST: 157.230.57.158
+          PROJECT: carpa
+          APP_CONFIG: ${{ secrets.APP_CONFIG }}
