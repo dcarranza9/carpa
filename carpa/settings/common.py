@@ -40,6 +40,7 @@ PROJECT_APPS = [
     'artificialintelligence',
     'harvests',
     'reports',
+    'sources',
 ]
 
 ADDONS = [
