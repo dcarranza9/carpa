@@ -29,15 +29,15 @@ jobs:
           pip install Django==${{ matrix.django-version }}
 
   deploy:
-    runs-on: ubuntu-20.04
+    name: Deploy
+    runs-on: ubuntu-latest
     steps:
-      - name: Cloning repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@master
+      - id: deploy
+        name: Deploy to dokku
+        uses: idoberko2/dokku-deploy-github-action@v1
         with:
-          fetch-depth: 0
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          dokku-host: '157.230.57.158'
+          app-name: 'carpa'
 
-      - name: Push to dokku
-        uses: dokku/github-action@master
-        with:
-          git_remote_url: 'ssh://dokku@157.230.57.158:22/carpa'
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
