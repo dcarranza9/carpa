@@ -9,7 +9,7 @@ class ParcelOwnerAdmin(admin.ModelAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
         (None, {
-            'fields': BaseModelAdmin.readonly_fields
+            'fields': (BaseModelAdmin.readonly_fields,)
         }),
         ('Person', {
             'fields': (('first_name', 'last_name',),)
@@ -21,7 +21,7 @@ class ParcelOwnerAdmin(admin.ModelAdmin):
             'fields': ('email', 'phone', 'website',)
         })
     )
-    list_display = ('id', 'first_name', 'last_name', 'email',)
+    list_display = ('id', 'first_name', 'last_name', 'address_1', 'email',)
     list_filter = ('creation_date',)
 
 
@@ -41,6 +41,6 @@ class ParcelAdmin(gis_admin.OSMGeoAdmin):
     )
     list_display = ('id', 'name', 'owner', 'extension',)
     list_filter = ('creation_date',)
-    default_lat = 454018.69011
-    default_lon = -8191521.69263
+    default_lat = 459132.20787
+    default_lon = -8195052.12787
     default_zoom = 15

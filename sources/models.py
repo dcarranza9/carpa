@@ -18,7 +18,7 @@ class ParcelOwner(BaseModel):
 
     class Meta:
         verbose_name = 'Parcel Owner'
-        verbose_name_plural = 'Parcel owners'
+        verbose_name_plural = 'Parcel Owners'
 
     def __str__(self):
         if self.first_name and self.last_name:
@@ -33,7 +33,7 @@ class Parcel(BaseModel):
     """
     name = models.CharField(max_length=128, blank=True)
     owner = models.ForeignKey(ParcelOwner, on_delete=models.CASCADE)
-    extension = models.DecimalField(max_digits=4, decimal_places=2, help_text='In hectares', blank=True)
+    extension = models.DecimalField(max_digits=4, decimal_places=2, help_text='In hectares', null=True, blank=True)
     location = gis_models.PolygonField(
         help_text='Select at least 3 points to delimit a region. When you have finished, press click twice.',
         null=True,
