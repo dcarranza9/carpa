@@ -1,4 +1,4 @@
-name: CARPA CI
+name: CARPA CI/CD
 
 on:
   push:
