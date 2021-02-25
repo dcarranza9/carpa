@@ -1,0 +1,79 @@
+:root {
+  --blue-color: #093456;
+  --green-color: #009200;
+  --green2-color: #7EAE1A;
+  --white-color: #EDE9D4;
+  --orange-color: #FF6700;
+}
+
+
+body {
+    background-color: var(--blue-color);
+  }
+
+.page-footer{
+    background-color: var(--green-color);
+
+    color: white;
+}
+
+.page-footer-login{
+  background-color: var(--green-color);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+
+.navbar {
+   background-color: var(--green-color);
+}
+
+.navbar-brand{
+  color: white !important;
+}
+
+.content{
+  background-color: white !important;
+  min-height: 87vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+}
+
+.title{
+  color: var(--green-color);
+}
+
+.button{
+  background-color: var(--green-color) !important;
+  color: white;
+}
+
+.button-navbar{
+  background-color: var(--green-color) !important;
+  color: white;
+  border-color: white;
+}
+
+.button-navbar:hover{
+  background-color: white !important;
+  color: var(--green-color) !important;
+  border: 2px solid var(--green-color);
+}
+
+.card-menu{
+  text-decoration: none !important;
+  height: 18vh;
+
+}
+
+.card-header{
+  background-color: var(--blue-color);
+}
+
+.card-header:hover, .tituloco:hover {
+  color: var(--blue-color);
+  background-color: white;
+  border: 5px solid var(--blue-color);
+}
