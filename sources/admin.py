@@ -54,10 +54,10 @@ class DriverAdmin(admin.ModelAdmin):
             'fields': (BaseModelAdmin.readonly_fields,)
         }),
         ('Person', {
-            'fields': ('name', 'address', 'email', 'phone', 'web')
+            'fields': ('name', 'address', 'email', 'phone', 'web',)
         }),
     )
-    list_display = ('id', 'name', 'creation_date', 'update_date')
+    list_display = ('id', 'name', 'creation_date', 'update_date',)
     list_filter = ('creation_date',)
 
 
@@ -66,13 +66,11 @@ class VehicleAdmin(admin.ModelAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
         (None, {
-            'fields': (BaseModelAdmin.readonly_fields),
+            'fields': (BaseModelAdmin.readonly_fields + ('is_active',),)
         }),
         ('Vehicle', {
-            'fields': ('plate', 'model', 'brand', 'details', 'driver')
+            'fields': ('plate', 'model', 'brand', 'details', 'driver',)
         })
     )
-    list_display = ('id', 'plate', 'model', 'brand', 'details',
-                    'driver', 'creation_date', 'update_date')
-    list_filter = ('plate', 'model',
-                   'brand', 'driver', 'creation_date')
+    list_display = ('id', 'plate', 'driver', 'model', 'brand',)
+    list_filter = ('creation_date',)

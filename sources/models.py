@@ -69,14 +69,15 @@ class Driver(BaseModel):
     def __str__(self):
         return self.name
 
+
 class Vehicle(BaseModel, models.Model):
     """
     """
 
-    plate = models.CharField(max_length=8, blank=True)
+    plate = models.CharField(max_length=16)
     model = models.CharField(max_length=64, blank=True)
-    brand = models.CharField(max_length=20, blank=True)
-    details = models.CharField(max_length=128, blank=True)
+    brand = models.CharField(max_length=32, blank=True)
+    details = models.TextField(null=True, blank=True)
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
@@ -86,6 +87,5 @@ class Vehicle(BaseModel, models.Model):
     def __str__(self):
         return self.plate
 
-    def get_absolute_url(self):
-        return reverse("_detail", kwargs={"pk": self.pk})
-
+    # def get_absolute_url(self):
+    #     return reverse("_detail", kwargs={"pk": self.pk})
