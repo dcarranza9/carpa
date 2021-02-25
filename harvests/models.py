@@ -4,7 +4,7 @@ from django.db import models
 from main.models import BaseModel
 
 
-class CategoryBunch(BaseModel, models.Model):
+class CategoryBunch(BaseModel):
     """
 
     """
@@ -23,18 +23,12 @@ class CategoryBunch(BaseModel, models.Model):
             return f'Category-{self.pk}'
 
 
-# def show_location(sender, instance, **kwargs):
-#     print(f'My coordinates: {instance.location}')
-#
-# post_save.connect(show_location, sender=BatchSource)
-
-
-class Bunch(BaseModel, models.Model):
+class Bunch(BaseModel):
     """
 
     """
 
-    category = models.ForeignKey(CategoryBunch, on_delete=models.CASCADE, blank=True)
+    category = models.ForeignKey(CategoryBunch, on_delete=models.CASCADE, null=True, blank=True)
     weight = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
 
     class Meta:
@@ -61,4 +55,7 @@ class Harvester(BaseModel):
         verbose_name_plural = 'Harvesters'
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return f'Harvester-{self.pk}'
