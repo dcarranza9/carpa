@@ -61,7 +61,7 @@
         "creation_date": "2021-02-15T18:47:32.185Z",
         "update_date": "2021-02-15T18:47:32.185Z",
         "is_active": true,
-        "category": 1,
+        "category": 10000,
         "weight": "45.27"
     }
 }
