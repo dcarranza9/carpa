@@ -1,6 +1,6 @@
 from django.contrib.gis import admin
 from django.contrib.admin import register
-from harvests.models import Bunch, CategoryBunch, Harvester
+from harvests.models import Bunch, BunchBatch, CategoryBunch, Harvester
 from main.admin import BaseModelAdmin
 
 
@@ -15,7 +15,8 @@ class BunchAdmin(admin.ModelAdmin):
             'fields': ('category', 'weight')
         })
     )
-    list_display = ('id', 'category', 'creation_date', 'update_date')
+    list_display = ('id', 'category', 'weight', 'creation_date')
+    list_editable = ('category', 'weight')
     list_filter = ('category', 'creation_date')
 
 
@@ -27,10 +28,11 @@ class CategoryBunchAdmin(admin.ModelAdmin):
             'fields': (BaseModelAdmin.readonly_fields + ('is_active',),)
         }),
         ('Category', {
-            'fields': ('name', 'description',)
+            'fields': ('name', 'description')
         })
     )
-    list_display = ('id', 'name', 'creation_date', 'update_date')
+    list_display = ('id', 'name', 'creation_date', 'is_active')
+    list_editable = ('name', 'is_active')
     list_filter = ('creation_date',)
 
 
@@ -45,10 +47,12 @@ class HarvesterAdmin(admin.ModelAdmin):
             'fields': ('name', 'address', 'email', 'phone', 'web')
         })
     )
-    list_display = ('id', 'name', 'creation_date', 'update_date')
-    list_filter = ('creation_date', 'is_active')
+    list_display = ('id', 'name', 'address', 'email', 'phone', 'creation_date')
+    list_editable = ('name', 'address', 'email', 'phone')
+    list_filter = ('creation_date',)
 
 
+@register(BunchBatch)
 class BunchBatchAdmin(admin.ModelAdmin):
     readonly_fields = BaseModelAdmin.readonly_fields
     fieldsets = (
@@ -56,13 +60,14 @@ class BunchBatchAdmin(admin.ModelAdmin):
             'fields': (BaseModelAdmin.readonly_fields + ('is_active',),)
         }),
         ('Batch', {
-            'fields': (('slug', 'delivery_time',), 'bunches', 'notes',)
+            'fields': ('delivery_time', 'bunches', 'notes')
         }),
         ('Source', {
-            'fields': (('parcel', 'vehicle',), 'harvesters',)
+            'fields': (('parcel', 'vehicle'), 'harvesters')
         })
     )
+    filter_horizontal = ('bunches', 'harvesters')
     list_display = ('id', 'parcel', 'vehicle', 'delivery_time', 'is_active')
     list_editable = ('parcel', 'vehicle', 'is_active')
     list_filter = ('creation_date', 'delivery_time')
-    filter_horizontal = ('bunches', 'harvesters')
+
