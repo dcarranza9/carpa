@@ -1,7 +1,6 @@
-
 from django.db import models
-# from django.db.models.signals import post_save
 from main.models import BaseModel
+from sources.models import Parcel, Vehicle
 
 
 class CategoryBunch(BaseModel):
@@ -59,3 +58,22 @@ class Harvester(BaseModel):
             return self.name
         else:
             return f'Harvester-{self.pk}'
+
+
+class BunchBatch(BaseModel):
+    """
+
+    """
+    bunches = models.ManyToManyField(Bunch, blank=True)
+    notes = models.TextField(null=True, blank=True)
+    delivery_time = models.DateTimeField(null=True, blank=True)
+    parcel = models.ForeignKey(Parcel, on_delete=models.CASCADE, null=True, blank=True)
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, null=True, blank=True)
+    harvesters = models.ManyToManyField(Harvester, blank=True)
+
+    class Meta:
+        verbose_name = 'Bunch Batches'
+        verbose_name_plural = 'Bunch Batches'
+
+    def __str__(self):
+        return f'Harvest-{self.pk}'

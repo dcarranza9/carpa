@@ -47,3 +47,22 @@ class HarvesterAdmin(admin.ModelAdmin):
     )
     list_display = ('id', 'name', 'creation_date', 'update_date')
     list_filter = ('creation_date', 'is_active')
+
+
+class BunchBatchAdmin(admin.ModelAdmin):
+    readonly_fields = BaseModelAdmin.readonly_fields
+    fieldsets = (
+        (None, {
+            'fields': (BaseModelAdmin.readonly_fields + ('is_active',),)
+        }),
+        ('Batch', {
+            'fields': (('slug', 'delivery_time',), 'bunches', 'notes',)
+        }),
+        ('Source', {
+            'fields': (('parcel', 'vehicle',), 'harvesters',)
+        })
+    )
+    list_display = ('id', 'parcel', 'vehicle', 'delivery_time', 'is_active')
+    list_editable = ('parcel', 'vehicle', 'is_active')
+    list_filter = ('creation_date', 'delivery_time')
+    filter_horizontal = ('bunches', 'harvesters')
