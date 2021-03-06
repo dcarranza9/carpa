@@ -56,6 +56,12 @@ class TestHarvesters(TestCase):
         self.assertNotIn(self.harvester, self.queryset)
 
 
+    def test_update_harvester(self):
+        Harvester.objects.filter(pk=10002).update(name='Oscar')
+        modified_harvester = Harvester.objects.get(pk=10002)
+        self.assertNotEqual(modified_harvester.name, 'Fabian')
+
+
 @tag('bunchbatch')
 class TestBunchBatch(TestCase):
     fixtures = ['test/BunchBatch.json']
@@ -93,10 +99,3 @@ class TestBunchBatch(TestCase):
         self.bunchbatch.delete()
         self.assertNotIn(self.bunchbatch, self.queryset)
 	
-
-
-    
-
-
-           
-
