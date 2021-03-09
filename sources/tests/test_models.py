@@ -33,7 +33,7 @@ class TestParcel(TestCase):
 
 
 @tag('driver')
-class TestParcel(TestCase):
+class TestDriver(TestCase):
     fixtures = ['test/sourcesDriver.json']
 
     def setUp(self):
