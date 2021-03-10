@@ -2,6 +2,7 @@ from django.test import TestCase, tag
 from sources.models import ParcelOwner, Parcel, Driver, Vehicle
 
 
+
 @tag('parcel')
 class TestParcel(TestCase):
     fixtures = ['test/sources.json']
