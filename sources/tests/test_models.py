@@ -90,3 +90,8 @@ class TestVehicles(TestCase):
     def delete_vehicle(self):
         self.vehicle.delete()
         self.assertNotIn(self.vehicle, self.queryset)
+
+    def test_update_driver(self):
+        self.vehicle.plate = 'MQTT09'
+        self.vehicle.save()
+        self.assertEqual(self.vehicle.plate, 'MQTT09')
